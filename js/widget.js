@@ -6,17 +6,17 @@ class WeatherWidget extends Widget {
 	
 	setUp() {
 		super.setUp();
-		this.header = true;
-		this.footer = true;
-		this.sizeX = 2;
-		this.sizeY = 1;
-		this.radius = 10;
+		this.try.header = true;
+		this.try.footer = true;
+		this.try.sizeX = 2;
+		this.try.sizeY = 1;
+		this.try.radius = 10;
 	}
 	
 	async ready() {
 		super.ready();
 		
-		this.controller.load();
+		this.try.controller.load();
 	}
 	
 }
@@ -47,32 +47,17 @@ class WeatherView extends WidgetView {
 
 	draw() {
 		super.draw();
-		this.link = HH.create("a");
-		SS.style(this.link, {"fontSize": "10px", "textDecoration": "none"});
-		
-		this.try.nextLine();
-		this.try.addButton('' , event => console.log("test")); 
+		this.try.image = HH.create("img");
+		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"});
+		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"});
+		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/cloudy.png"});
+	
+	
+	
+	
+	
 	}
 	
-	
-	
-}
-	addButton(name,func,val) {
-		let b = HH.create("div");
-		b.textContent=name;
-		b.addEventListener('click',function(event){
-		func(event,val);
-	};
-		this.try.buttons.push(b);
-	
-	showButton(){
-		for(let i=0; i<this.try.buttons.length; i++){
-			if(i % 3 == 0)
-				this.try.nextLine();
-				this.try.stage.appendChild(this.try.buttons[i]);
-		}
-	}
-
 
 
 
@@ -86,15 +71,15 @@ class WeatherController extends WidgetController {
 		super.setUp();
 		
 	}
-	getLocatio(){
-		if(navigator.geolocalisation){
-			navigator.geolocalisation.getCurrentPosition(succes,error);
+	getLocation(){
+		if(navigator.geoLocation){
+			navigator.geoLocation.getCurrentPosition(succes,error);
 		}
 		else{
 			error();
 		}
 	async load() {
-		let result = await this.mvc.main.dom("http://www.meteofrance.com"); // load web page
+		let result = await this.mvc.main.dom("https://www.meteofrance.com"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
