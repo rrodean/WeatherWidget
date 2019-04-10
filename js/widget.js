@@ -51,7 +51,7 @@ class WeatherView extends WidgetView {
 		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"});
 		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"});
 		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/cloudy.png"});
-		this.stage.appendChild(img);
+		this.try.stage.appendChild(img);
 	
 	
 	
@@ -72,8 +72,8 @@ class WeatherController extends WidgetController {
 		
 	}
 	getLocation(){
-		if(navigator.geoLocation){
-			navigator.geoLocation.getCurrentPosition(succes,error);
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(succes,error);
 		}
 		else{
 			error();
