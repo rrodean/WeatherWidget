@@ -79,11 +79,11 @@ class WeatherController extends WidgetController {
 			error();
 		}
 	async load() {
-		let result = await this.mvc.main.dom("https://www.meteofrance.com"); // load web page
+	/*	let result = await this.mvc.main.dom("https://www.meteofrance.com"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
-	
+	*/
 		this.mvc.view.update(article.textContent, article.getAttribute("href"));
 	}
 	
