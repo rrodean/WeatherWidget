@@ -57,7 +57,7 @@ class WeatherView extends WidgetView {
 	
 	
 	}
-	
+}
 
 
 
@@ -77,7 +77,7 @@ class WeatherController extends WidgetController {
 		}
 		else{
 			error();
-		}
+	}}
 	async load() {
 	/*	let result = await this.mvc.main.dom("https://www.meteofrance.com"); // load web page
 		let domstr = _atob(result.response.dom); // decode result
