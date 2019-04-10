@@ -48,10 +48,10 @@ class WeatherView extends WidgetView {
 	draw() {
 		super.draw();
 		this.try.image = HH.create("img");
-		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"});
-		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"});
-		CSS.style(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/cloudy.png"});
-	
+		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"});
+		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/rain_s_cloudy.png"});
+		HH.attr(this.try.image, {"src": "https://ssl.gstatic.com/onebox/weather/64/cloudy.png"});
+		this.stage.appendChild(img);
 	
 	
 	
